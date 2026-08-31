@@ -1,0 +1,167 @@
+/* Reset básico e estilos gerais */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: #000000; /* Textos gerais em preto */
+    background-color: #f3f0f7; /* Fundo do site num lilás bem suave */
+}
+
+/* Cabeçalho e Navegação */
+header {
+    background-color: #4c1d95; /* Lilás escuro para destacar o topo */
+    color: #ffffff;
+    padding: 2rem 1rem;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+header p {
+    color: #e9d5ff; /* Texto do subtítulo em lilás claro */
+    margin-bottom: 1.5rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+nav a {
+    color: #ffffff;
+    background-color: #2563eb; /* Botões do menu em Azul */
+    text-decoration: none;
+    font-weight: bold;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+
+nav a:hover {
+    background-color: #1d4ed8; /* Azul mais escuro no passar do mouse */
+}
+
+/* Estrutura Principal */
+main {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Boxes/Seções do conteúdo em Azul e Lilás */
+section {
+    background-color: #e0e7ff; /* Box em tom de Azul claro */
+    border: 2px solid #a855f7; /* Borda da box em Lilás */
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Títulos */
+h2 {
+    color: #000000; /* Texto em preto */
+    border-bottom: 3px solid #7e22ce; /* Linha divisória em lilás forte */
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+h3 {
+    color: #000000; /* Texto em preto */
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+p, li {
+    color: #000000; /* Textos de parágrafo e listas em preto */
+    margin-bottom: 1rem;
+}
+
+ul {
+    margin-left: 1.5rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+/* Tabelas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    background-color: #ffffff; /* Fundo interno da tabela em branco para boa leitura */
+}
+
+table, th, td {
+    border: 1px solid #a855f7; /* Borda da tabela em lilás */
+}
+
+th, td {
+    padding: 0.75rem;
+    text-align: left;
+    color: #000000; /* Texto da tabela em preto */
+}
+
+th {
+    background-color: #c084fc; /* Cabeçalho da tabela em Lilás */
+    color: #000000;
+}
+
+/* Blocos de Código */
+pre {
+    background-color: #1e1b4b; /* Fundo escuro tom azul-arroxeado */
+    color: #ffffff;
+    padding: 1rem;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+code {
+    font-family: "Courier New", Courier, monospace;
+}
+
+/* Imagens */
+.imagem-container {
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+.imagem-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid #7e22ce; /* Borda da imagem em lilás */
+}
+
+.imagem-container p {
+    color: #000000;
+    margin-top: 0.5rem;
+}
+
+/* Destaque para a Pergunta Principal (Box Alternativa Lilás) */
+.destaque {
+    background-color: #f3e8ff; /* Box num tom Lilás bem suave */
+    border: 3px solid #2563eb; /* Borda em Azul */
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: hsl(244, 29%, 61%); /* Azul escuro arroxeado */
+    color: #ffffff;
+    margin-top: 2rem;
+}

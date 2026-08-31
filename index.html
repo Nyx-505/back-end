@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia Completo: Desenvolvimento Back-End em Aplicações Web</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Desenvolvimento Back-End na Web</h1>
+        <p>Entendendo a arquitetura, conceitos e tecnologias "por trás dos panos"</p>
+        <nav>
+            <ul>
+                <li><a href="#tema1">1. Front-End vs Back-End</a></li>
+                <li><a href="#tema2">2. Funcionamento do Back-End</a></li>
+                <li><a href="#tema3">3. APIs & REST</a></li>
+                <li><a href="#tema4">4. Tecnologias Back-End</a></li>
+                <li><a href="#resposta-desafio">Pergunta Principal</a></li>
+                <li><a href="#referencias">Referências</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- TEMA 1 -->
+        <section id="tema1">
+            <h2>1. Front-End e Back-End</h2>
+            <article>
+                <h3>O que é Front-End?</h3>
+                <p>O Front-End é a camada visual de uma aplicação web — ou seja, a interface com a qual o usuário interage diretamente no seu navegador. Ele engloba a estrutura das páginas (HTML), a estilização e o visual (CSS) e o comportamento dinâmico e interatividade na tela (JavaScript).</p>
+
+                <h3>O que é Back-End?</h3>
+                <p>O Back-End é a camada que roda por trás da interface. É a "engrenagem" inacessível ao usuário final, responsável pelo processamento de dados, lógica de negócios, autenticação de segurança e comunicação com banco de dados e serviços externos.</p>
+
+                <h3>Diferenças e Responsabilidades</h3>
+                <p>Enquanto o Front-End foca em transformar código em componentes visuais para criar uma boa experiência ao usuário (UI/UX), o Back-End garante que a aplicação funcione de maneira lógica, segura e estável, processando as requisições enviadas pelo cliente.</p>
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Atributo</th>
+                            <th>Front-End</th>
+                            <th>Back-End</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Interface</strong></td>
+                            <td>Visual, acessível ao usuário final.</td>
+                            <td>Invisível, processa dados e regras.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Execução</strong></td>
+                            <td>Navegador do Cliente (Client-side).</td>
+                            <td>Servidor de Aplicação (Server-side).</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Foco Principal</strong></td>
+                            <td>Experiência do usuário (UX/UI) e renderização visual.</td>
+                            <td>Regras de negócio, segurança e banco de dados.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Comunicação e Local de Execução</h3>
+                <p>O Front-End roda no navegador do dispositivo do usuário (cliente). O Back-End é executado em servidores físicos ou em nuvem. A comunicação entre os dois ocorre através de rede usando protocolos como HTTP/HTTPS, onde o Front-End faz requisições solicitando dados ou ações, e o Back-End processa a solicitação e devolve uma resposta adequada (geralmente no formato JSON).</p>
+            </article>
+        </section>
+
+        <!-- TEMA 2 -->
+        <section id="tema2">
+            <h2>2. Funcionamento do Back-End</h2>
+            <article>
+                <h3>Conceitos Fundamentais</h3>
+                <ul>
+                    <li><strong>Cliente e Servidor:</strong> O cliente é quem consome a aplicação (o computador ou smartphone com o navegador), enquanto o servidor é um computador remoto de alto desempenho responsável por armazenar a aplicação e responder às demandas do cliente.</li>
+                    <li><strong>Requisição e Resposta (Request/Response):</strong> Ciclo fundamental de comunicação na web. A requisição (Request) é a mensagem enviada do cliente solicitando algo, e a resposta (Response) é o retorno que o servidor entrega de volta ao cliente.</li>
+                    <li><strong>HTTP e HTTPS:</strong> Protocolos de transferência de dados no sistema web. O HTTPS adiciona uma camada de criptografia (SSL/TLS), garantindo segurança na transmissão dos dados do usuário.</li>
+                    <li><strong>Servidor Web:</strong> Software encarregado de processar as chamadas HTTP e entregar arquivos estáticos (HTML, CSS, imagens) ou redirecionar a chamada para a aplicação Back-End.</li>
+                    <li><strong>Regras de Negócio e Validação:</strong> Conjunto de instruções computacionais que ditam o funcionamento real do sistema (ex.: "um usuário só pode comprar se tiver saldo") e verificam a consistência dos dados inseridos antes de salvá-los no banco.</li>
+                </ul>
+
+                <h3>Fluxo de Execução em uma Aplicação Real</h3>
+                <p>Quando o usuário executa uma ação em um site, como efetuar o login ou clicar para comprar um item, uma solicitação é estruturada pelo navegador. Essa solicitação viaja pela internet no protocolo HTTP/HTTPS até atingir o servidor Back-End. Ao receber a mensagem, o Back-End extrai os dados informados, valida se as permissões e parâmetros estão corretos, consulta ou altera o banco de dados conforme as regras do sistema e empacota o resultado final em uma resposta que é transmitida de volta para ser exibida pelo Front-End.</p>
+                
+                <div class="imagem-container">
+                    <img src="./img/images.jpg" alt="Diagrama da Arquitetura Cliente-Servidor e Back-End">
+                    <p><em>Figura 1: Diagrama de comunicação entre Cliente, Servidor e Banco de Dados.</em></p>
+                </div>
+            </article>
+        </section>
+
+        <!-- TEMA 3 -->
+        <section id="tema3">
+            <h2>3. APIs e Arquitetura REST</h2>
+            <article>
+                <h3>Conceitos de API, REST e Endpoints</h3>
+                <p>Uma <strong>API</strong> (Interface de Programação de Aplicações) funciona como uma ponte de comunicação entre sistemas distintos. Uma <strong>API REST</strong> é um modelo de arquitetura que segue padrões bem definidos do protocolo HTTP para gerenciar recursos. Os <strong>Endpoints</strong> são os endereços (URLs) disponibilizados pelo servidor Back-End para permitir que o Front-End interaja com um recurso específico do sistema.</p>
+
+                <h3>Métodos HTTP e Exemplos de Uso</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Método</th>
+                            <th>Descrição / Utilização</th>
+                            <th>Exemplo de Endpoint</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>GET</code></td>
+                            <td>Solicita a leitura/busca de dados do servidor sem alterar nada.</td>
+                            <td><code>GET https://api.exemplo.com/produtos/123   </code></td>
+                        </tr>
+                        <tr>
+                            <td><code>POST</code></td>
+                            <td>Envia novos dados ao servidor para criar um recurso novo.</td>
+                            <td><code>POST https://api.exemplo.com/usuarios</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>PUT</code></td>
+                            <td>Atualiza um recurso de forma completa (substituição).</td>
+                            <td><code>PUT https://api.exemplo.com/usuarios/1</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>PATCH</code></td>
+                            <td>Atualiza um recurso de forma parcial (apenas campos específicos).</td>
+                            <td><code>PATCH https://api.exemplo.com/usuarios/1</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>DELETE</code></td>
+                            <td>Remove um recurso específico mantido no servidor.</td>
+                            <td><code>DELETE https://api.exemplo.com/usuarios/1</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Exemplo de Código: Consumindo API no Front-End</h3>
+                <p>Abaixo está um exemplo simples em JavaScript utilizando <code>fetch</code> para fazer uma requisição do tipo GET para buscar uma lista de usuários:</p>
+<pre><code>// Exemplo de chamada do Front-End para a API do Back-End
+fetch('https://api.exemplo.com/usuarios')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Erro na requisição:', error));
+</code></pre>
+            </article>
+        </section>
+
+        <!-- TEMA 4 -->
+        <section id="tema4">
+            <h2>4. Tecnologias Back-End</h2>
+            <article>
+                <p>O ecossistema de ferramentas e linguagens para desenvolvimento no Back-End é amplo. A escolha depende da escala, performance exigida e regras de negócio do sistema.</p>
+
+                <!-- Tecnologia 1 -->
+                <h3>1. Node.js</h3>
+                <ul>
+                    <li><strong>Linguagem:</strong> JavaScript / TypeScript</li>
+                    <li><strong>Características:</strong> Ambiente de execução assíncrono e orientado a eventos baseado na engine V8 do Google Chrome.</li>
+                    <li><strong>Vantagens:</strong> Altíssima performance para sistemas com muitas conexões simultâneas e reutilização da mesma linguagem (JS) no Front e Back.</li>
+                    <li><strong>Exemplo de Aplicação:</strong> Aplicações de chat em tempo real, plataformas de streaming e APIs REST escaláveis (ex.: Netflix e Uber).</li>
+                </ul>
+
+                <!-- Tecnologia 2 -->
+                <h3>2. Python (Django / Flask)</h3>
+                <ul>
+                    <li><strong>Linguagem:</strong> Python</li>
+                    <li><strong>Características:</strong> Sintaxe simples e limpa, acompanhada de frameworks robustos como o Django que traz soluções "prontas para uso".</li>
+                    <li><strong>Vantagens:</strong> Rápido tempo de desenvolvimento, excelente integração com Inteligência Artificial, Ciência de Dados e Machine Learning.</li>
+                    <li><strong>Exemplo de Aplicação:</strong> Plataformas de análise de dados, redes sociais e sistemas de recomendação (ex.: Instagram e Spotify).</li>
+                </ul>
+
+                <!-- Tecnologia 3 -->
+                <h3>3. Java (Spring Boot)</h3>
+                <ul>
+                    <li><strong>Linguagem:</strong> Java</li>
+                    <li><strong>Características:</strong> Orientação a objetos rígida, linguagem fortemente tipada e executada sobre a máquina virtual Java (JVM).</li>
+                    <li><strong>Vantagens:</strong> Elevada segurança, excelente performance para processamentos pesados e extrema estabilidade em aplicações corporativas de grande porte.</li>
+                    <li><strong>Exemplo de Aplicação:</strong> Sistemas bancários, soluções de meios de pagamento e grandes ERPs corporativos.</li>
+                </ul>
+
+                <!-- Tecnologia 4 -->
+                <h3>4. PHP (Laravel)</h3>
+                <ul>
+                    <li><strong>Linguagem:</strong> PHP</li>
+                    <li><strong>Características:</strong> Linguagem tradicional para web, com frameworks modernos como o Laravel que organizam o código em padrão MVC.</li>
+                    <li><strong>Vantagens:</strong> Hospedagem barata e simples, facilidade de implantação e uma imensa comunidade com soluções prontas.</li>
+                    <li><strong>Exemplo de Aplicação:</strong> Sistemas de gerenciamento de conteúdo (ex.: WordPress), plataformas e-commerce e portais de notícias.</li>
+                </ul>
+
+                <!-- Tecnologia 5 -->
+                <h3>5. C# (.NET Core)</h3>
+                <ul>
+                    <li><strong>Linguagem:</strong> C#</li>
+                    <li><strong>Características:</strong> Framework desenvolvido pela Microsoft, multiplataforma e voltado para alta performance no ambiente empresarial.</li>
+                    <li><strong>Vantagens:</strong> Excelente suporte do ecossistema Microsoft, forte tipagem e rigoroso gerenciamento de memória.</li>
+                    <li><strong>Exemplo de Aplicação:</strong> Sistemas de gestão empresarial, jogos e plataformas financeiras de grande volume de processamento.</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- PERGUNTA PRINCIPAL / RESPOSTA CENTRAL -->
+        <section id="resposta-desafio" class="destaque">
+            <h2>Pergunta Principal da Atividade</h2>
+            <h3>"Quando o usuário clica em um botão no site, o que está acontecendo no Back-End?"</h3>
+            <article>
+                <p>Quando o usuário realiza uma ação como clicar em um botão no site (por exemplo, "Finalizar Compra"):</p>
+                <ul>
+                    <li><strong>1. Disparo do evento:</strong> O navegador intercepta o clique do botão através do Front-End e constrói uma requisição HTTP (geralmente POST) contendo dados estruturados (como token de sessão, itens do carrinho e forma de pagamento).</li>
+                    <li><strong>2. Recepção e Roteamento:</strong> O pacote de dados viaja até o servidor Back-End, onde um roteador identifica o <em>endpoint</em> específico responsável por processar a compra.</li>
+                    <li><strong>3. Autenticação e Segurança:</strong> O Back-End verifica se a requisição é válida, validando se o usuário está devidamente logado e se o token de acesso não está expirado.</li>
+                    <li><strong>4. Validação de Dados e Regras de Negócio:</strong> As regras de negócio são acionadas. O Back-End confere se os dados recebidos estão completos e seguros (evitando ataques de SQL Injection) e se os itens realmente têm estoque disponível.</li>
+                    <li><strong>5. Comunicação com Banco de Dados:</strong> O Back-End executa uma instrução no Banco de Dados para dar baixa no estoque e gravar o novo pedido gerado na conta do cliente.</li>
+                    <li><strong>6. Resposta (Response):</strong> O servidor consolida a operação com um status HTTP (ex.: <code>201 Created</code> ou <code>200 OK</code>) acompanhado de uma mensagem contendo os detalhes do pedido e envia isso de volta para o cliente. O Front-End lê essa resposta e altera o visual da página para "Compra realizada com sucesso!".</li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- REFERÊNCIAS -->
+        <section id="referencias">
+            <h2>Referências Utilizadas</h2>
+            <ul>
+                <li>MDN Web Docs - <a href="https://developer.mozilla.org/pt-BR/" target="_blank">https://developer.mozilla.org/pt-BR/</a></li>
+                <li>W3Schools Online Web Tutorials - <a href="https://www.w3schools.com/" target="_blank">https://www.w3schools.com/</a></li>
+                <li>DevMedia - Guia de Desenvolvimento Back-End</li>
+            </ul>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Projeto de Pesquisa Desenvolvimento Back-End. Todos os direitos reservados á
+            Any Rodrigues Santos
+        </p>
+    </footer>
+
+</body>
+</html>
